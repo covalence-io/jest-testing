@@ -1,14 +1,14 @@
 import { BASE_URL, getThumbnail, isArray, isEmpty } from '../../utils';
 import styles from './list.module.css';
 
-interface IProps {
+export interface IProps {
     posts: models.IRedditPost[];
 }
 
 export default function List({ posts }: IProps) {
     if (!isArray(posts) || posts.length === 0) {
         return (
-            <div className="pt-10 text-center text-sm">
+            <div data-testid="none" className="pt-10 text-center text-sm">
                 <span>No posts found :(</span>
             </div>
         );
@@ -16,7 +16,7 @@ export default function List({ posts }: IProps) {
 
     return (
         <div className="pt-1 pb-5">
-            <div>
+            <div data-testid="list">
                 {posts.map((p) => {
                     const pdata = p.data;
 

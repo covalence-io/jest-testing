@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import styles from './navbar.module.css';
 import { ALL_POSTS, isEmpty } from '../../utils';
 
-interface IProps {
+export interface IProps {
     dark: boolean;
     onThemeChanged: (dark: boolean) => void;
 }
@@ -52,6 +52,7 @@ export default function Navbar({ dark, onThemeChanged }: IProps) {
                             className="w-full max-w-2xl mr-20"
                             onSubmit={onSubmit}>
                             <input
+                                role="search"
                                 type="search"
                                 className="block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-white dark:border-gray-900 dark:focus:text-white"
                                 placeholder="Search Subreddits"
